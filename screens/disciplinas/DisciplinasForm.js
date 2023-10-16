@@ -3,8 +3,9 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 import { Button, Text, TextInput } from 'react-native-paper'
+import Disciplinas from './Disciplinas'
 
-const CursosForm = ({navigation}) => {
+const DisciplinasForm = ({navigation}) => {
 
   const [dados, setDados] = useState({})
 
@@ -26,6 +27,7 @@ const CursosForm = ({navigation}) => {
       navigation.goBack()
     })
 
+
   }
 
   return (
@@ -43,24 +45,18 @@ const CursosForm = ({navigation}) => {
       <TextInput
         style={{ marginTop: 10 }}
         mode='outlined'
-        label='Duração'
+        label='CursoId'
         keyboardType='decimal-pad'
+        
         value={dados.duracao}
-        onChangeText={(valor) => handleChange(valor, 'duracao')}
+        onChangeText={(valor) => handleChange(valor, 'cursoId')}
       />
 
-      <TextInput
-        style={{ marginTop: 10 }}
-        mode='outlined'
-        label='Modalidade'
-        value={dados.modalidade}
-        onChangeText={(valor) => handleChange(valor, 'modalidade')}
-      />
-
+     
       <Button onPress={salvar}>Salvar</Button>
 
     </ScrollView>
   )
 }
 
-export default CursosForm
+export default DisciplinasForm
